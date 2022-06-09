@@ -29,8 +29,6 @@ escapes.update({c: f'\\{c}' for c in '),('})
 options = f'{sei_userdata_uuid}+x264 - {x264_version} - {header_copyright} - options: {settings}'
 
 options = ''.join([escapes.get(char, char) for char in options])
-
-print(options)
     
 cmd = [exe, '-i', in_, '-y', '-c:v', 'copy', '-bsf:v', f'h264_metadata=sei_user_data="{options}"', out_]
 
